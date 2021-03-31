@@ -7,7 +7,7 @@ const Main = (props) => {
         <>
             <Header {...props} />
             <main className="content container-fluid">
-                <div className="p3 mt-3">
+                <div className="p-3 mt-3">
                     {props.children}
                 </div>
             </main>
