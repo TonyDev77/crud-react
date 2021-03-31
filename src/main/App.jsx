@@ -12,7 +12,15 @@ const App = (props) => {
         <div className="app">
             <Logo />
             <Nav />
-            <Main icon="home" title="Início" subtitle="Segundo projeto React." />
+            <Main icon="home" title="Início" subtitle="Segundo projeto React.">
+
+                <div className="display-4">Bem Vindo!</div>
+                <hr />
+                <p className="mb-0">
+                    Sistema para exemplificar a construção de um cadastro desenvolvido em React.
+                </p>
+
+            </Main>
             <Footer />
         </div>
     )

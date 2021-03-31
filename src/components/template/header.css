@@ -3,13 +3,10 @@ header.header {
     padding: 0px 15px;
     overflow: hidden;
     white-space: nowrap;
-    box-shadow: var(--shadow);
+    border-left: solid 1px rgb(122, 117, 188);
+    box-shadow: var(--shadow-header);
 }
 
 header.header h1 {
     font-size: 1.8em;
-}
-
-.fa {
-    color: rgb(122, 117, 188);
 }

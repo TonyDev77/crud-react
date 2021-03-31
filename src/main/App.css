@@ -1,5 +1,6 @@
 :root {
     --bg-dark: #1A2F3A;
+    --bg-logo: rgb(122, 117, 188);
 
     --logo-height: 100px;
     --header-height: 100px;
@@ -10,6 +11,8 @@
     --shadow:
             0 2px 23px 0 rgba(0, 0, 0, 0.1),
             0 2px 49px 0 rgba(0, 0, 0, 0.06);
+
+    --shadow-header: 0 0px 4px 0 rgba(0, 0, 0, .3);
 }
 
 * {
