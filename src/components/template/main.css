@@ -2,3 +2,7 @@ main > div {
     background-color: #FFF;
     box-shadow: 0 0 5px #0004;
 }
+
+div.container-welcome {
+ border-radius: 5px;
+}
