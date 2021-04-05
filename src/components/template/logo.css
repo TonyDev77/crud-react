@@ -14,7 +14,7 @@ aside.logo svg {
 }
 
 @media(max-width: 576px) {
-    aside.logo img {
-        width: 350px;
+    aside.logo svg {
+        width: 230px;
     }
 }
