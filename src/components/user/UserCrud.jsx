@@ -129,17 +129,17 @@ class UserCrud extends Component {
     }
 
     renderRows() {
-        return this.state.list.map(user => {
+        return this.state.list.map((e) => {
             return(
-                <tr key={user.id}>
-                    <td>{user.id}</td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
+                <tr key={e.id}>
+                    <td>{e.id}</td>
+                    <td>{e.name}</td>
+                    <td>{e.email}</td>
                     <td>
-                        <button className="btn btn-warning" onClick={ () => this.load(user) }>
+                        <button className="btn btn-warning" onClick={ () => this.load(e) }>
                             <i className="fa fa-pencil"></i>
                         </button>
-                        <button className="btn btn-danger ml-2" onClick={ () => this.remove(user) }>
+                        <button className="btn btn-danger ml-2" onClick={ () => this.remove(e) }>
                             <i className="fa fa-trash" ></i>
                         </button>
                     </td>
