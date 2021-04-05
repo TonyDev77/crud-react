@@ -13,10 +13,10 @@ const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app">
-                <Logo/>
-                <Nav/>
-                <Routes/>
-                <Footer/>
+                <Logo />
+                <Nav />
+                <Routes />
+                <Footer />
             </div>
         </BrowserRouter>
     )

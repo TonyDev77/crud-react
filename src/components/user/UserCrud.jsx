@@ -21,20 +21,22 @@ const initialState = {
 
 class UserCrud extends Component {
 
-    state = {...initialState} // "state" sobrescreve o método em React.Component
+    state = {...initialState} // "state" override the method in React.Component
 
     clear() {
         this.setState({user: initialState.user})
     }
 
+    // Saves users in DB
     save() {
-        const user = this.state.user;
-        const method = user.id ? "put" : "post";
-        const url = user.id ? `${baseURL}/${user.id}` : baseURL;
+        const userReceived = this.state.user;
+        const method = userReceived.id ? "put" : "post";
+        const url = userReceived.id ? `${baseURL}/${userReceived.id}` : baseURL;
 
-        axios[method](url, user)
-            .then((resp) => {
-                const updatedList = this.getUpdatedList(resp.data);
+        axios[method](url, userReceived)
+            .then((e) => {
+                debugger
+                const updatedList = this.getUpdatedList(e.data);
                 this.setState({
                     user: initialState.user,
                     list: updatedList
@@ -42,16 +44,17 @@ class UserCrud extends Component {
             })
     }
 
-    getUpdatedList(user) {
-        const list = this.state.list.filter(u => u.id !== user.id); // remove usuário da lista
-        list.unshift(user); // reinsere na 1º posição
+    getUpdatedList(userReceived) {
+        const list = this.state.list.filter(u => u.id !== userReceived.id); // remove user from list
+        list.unshift(userReceived); // inserts in first position
         return list;
     }
 
-    updateField(event) {
-        const userUpdate = {...this.state.user};
-        // o "[]" é uma alternativa ao userUpdate.name
-        userUpdate[event.target.name] = event.target.value;
+    // Receives data from html form | Allows edition in html field
+    updateField(e) {
+        const userUpdate = {...this.state.user };
+        // The "[]" it's a alternative for "userUpdate.name"
+        userUpdate[e.target.name] = e.target.value;
         this.setState({user: userUpdate});
     }
 
@@ -59,13 +62,12 @@ class UserCrud extends Component {
         return (
             <div className="form">
                 <div className="row">
-
                     <div className="col-12 col-md-6">
                         <div className="form-group">
                             <label>Nome</label>
                             <input type="text" className="form-control"
                                    name="name" value={this.state.user.name}
-                                   onChange={e => this.updateField(e)}
+                                   onChange={ e => this.updateField(e) }
                                    placeholder="Digite o nome..."
                             />
                         </div>
@@ -75,12 +77,13 @@ class UserCrud extends Component {
                         <div className="form-group">
                             <label>email</label>
                             <input type="text" className="form-control" name="email"
-                                   value={this.state.user.email}
-                                   onChange={e => this.updateField(e)}
+                                   value={ this.state.user.email }
+                                   onChange={ e => this.updateField(e) }
                                    placeholder="Digite o email..."/>
                         </div>
                     </div>
                 </div>
+
                 <hr/>
                 <div className="row">
                     <div className="col-12 d-flex justify-content-end">
